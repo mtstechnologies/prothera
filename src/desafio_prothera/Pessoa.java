@@ -1,6 +1,7 @@
 package desafio_prothera;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Pessoa {
     private String nome;
@@ -17,5 +18,11 @@ public class Pessoa {
 
     public LocalDate getDataNascimento() {
         return dataNascimento;
+    }
+    
+    @Override
+    public String toString() {
+        DateTimeFormatter formatado = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return "Nome: " + nome + ", Data de Nascimento: " + dataNascimento.format(formatado);
     }
 }
